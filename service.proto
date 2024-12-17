@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package example;
+
+// Сервис с несколькими методами
+service ExampleService {
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+  rpc SayHelloWithAge (HelloWithAgeRequest) returns (HelloResponse);
+  rpc AddNumbers (AddNumbersRequest) returns (AddNumbersResponse);
+  rpc GreetByTime (TimeOfDayRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
+// Новый запрос для возраста
+message HelloWithAgeRequest {
+  string name = 1;
+  int32 age = 2;
+}
+
+// Запрос для сложения чисел
+message AddNumbersRequest {
+  int32 num1 = 1;
+  int32 num2 = 2;
+}
+
+// Ответ для сложения чисел
+message AddNumbersResponse {
+  int32 sum = 1;
+}
+
+// Запрос для времени суток
+message TimeOfDayRequest {
+  int32 hour = 1;  // Часы от 0 до 23
+}
