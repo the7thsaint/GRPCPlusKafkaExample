@@ -3,6 +3,7 @@
 * Устновить пакетный менеджер pip и Python 3.12
 * Запустить в дериктории проекта команду pip install grpcio grpcio-tools
 * Запустить в дериктории проекта команду python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. service.proto
+  * Должны сгенерироваться файлы *_pb2.py и *_pb2_grpc.py
 * Запустить в дериктории проекта команду pip install confluent-kafka
 * Установить docker на ПК
 
