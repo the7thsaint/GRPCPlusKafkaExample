@@ -99,3 +99,19 @@ docker-compose up -d
 # Проверка состояния контейнеров
 echo "Состояние контейнеров:"
 docker-compose ps
+
+# Ожидание запуска Kafka и Zookeeper
+echo "Ожидание запуска Kafka и Zookeeper..."
+sleep 10
+
+# Запуск gRPC сервера в фоновом режиме
+echo "Запуск gRPC сервера..."
+python server.py &
+
+# Запуск Kafka Consumer в фоновом режиме
+echo "Запуск Kafka Consumer..."
+python consumer.py &
+
+# Ожидание завершения (чтобы скрипт не завершался сразу)
+echo "Сервер и консьюмер запущены. Нажмите Ctrl+C для остановки."
+wait
